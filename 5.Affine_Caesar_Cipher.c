@@ -1,31 +1,29 @@
-
 #include <stdio.h>
 #include <string.h>
 
-void affineCaesarEncrypt(char plaintext[],int a,int b) 
+int main() 
 {
-    int n=strlen(plaintext);
-    char ciphertext[n];
-    for(int i=0;i<n;i++) 
+    int a = 5; 
+    int b = 4;
+    char plaintext[] = "HELLO BHARGAV";
+    int n = strlen(plaintext);
+    char ciphertext[n + 1]; 
+    for(int i = 0; i < n; i++) 
     {
-        char p=plaintext[i];
-        if(p>='A'&&p<='Z') 
+        char p = plaintext[i];
+        if(p >= 'A' && p <= 'Z') 
         {
-            ciphertext[i]='A'+(a*(p-'A')+b)%26;
+            ciphertext[i] = 'A' + (a * (p - 'A') + b) % 26;
         }
         else 
         {
-            ciphertext[i]=p;
+            ciphertext[i] = p;
         }
     }
-    ciphertext[n]='\0';
-    printf("\nPlaintext = %s\n",plaintext);
-    printf("\nCiphertext = %s\n",ciphertext);
-}
-int main() 
-{
-    int a=5;
-    int b=4;
-    char plaintext[]="HELLO BHARGAV";
-    affineCaesarEncrypt(plaintext,a,b);
+    ciphertext[n] = '\0'; 
+
+    printf("\nPlaintext = %s\n", plaintext);
+    printf("\nCiphertext = %s\n", ciphertext);
+
+    return 0;
 }
